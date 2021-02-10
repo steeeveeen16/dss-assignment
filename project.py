@@ -51,19 +51,19 @@ categorical = ['Race','Gender','Body_Size', 'With_Kids','Kids_Category','Basket_
 d = defaultdict(LabelEncoder) 
 
 df_fs[categorical] = df_fs[categorical].apply(lambda x: d[x.name].fit_transform(x.astype(str)))
-class_variable = st.selectbox("Class Variables",("Gender","With_Kids"))
-if(class_variable == "Gender"):
-   X = df_fs.drop('Gender', axis=1) 
-   y = df_fs['Gender']
+class_variable = st.selectbox("Class Variables",("pants_type","Basket_Size"))
+if(class_variable == "pants_type"):
+   X = df_fs.drop('pants_type', axis=1) 
+   y = df_fs['pants_type']
    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4,random_state=10)
-elif (class_variable == "With_Kids"):
-   X = df_fs.drop('With_Kids', axis=1) 
-   y = df_fs['With_Kids']
+elif (class_variable == "Basket_Size"):
+   X = df_fs.drop('Basket_Size', axis=1) 
+   y = df_fs['Basket_Size']
    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4,random_state=10)
 else:
  
-   X = df_fs.drop('Gender', axis=1) 
-   y = df_fs['Gender']
+   X = df_fs.drop('pants_type', axis=1) 
+   y = df_fs['pants_type']
    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4,random_state=10)
 
 if(classifier_name == "K-Nearest Neighbors"):
